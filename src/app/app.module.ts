@@ -2,10 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HistoryComponent } from './components/history/history.component';
+import { FilesComponent } from './components/files/files.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HistoryComponent,
+    FilesComponent
   ],
   imports: [
     BrowserModule
@@ -13,4 +17,5 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
