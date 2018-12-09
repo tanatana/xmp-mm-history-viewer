@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FilesService } from './files.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'xmp-mm-history-viewer';
   dragEnterCounter = 0;
-  constructor() { }
+  constructor(private filesService: FilesService) { }
 
   ngOnInit() {
   }
@@ -34,6 +36,6 @@ export class AppComponent implements OnInit {
     e.preventDefault();
     e.stopPropagation();
     this.dragEnterCounter = 0;
-    console.log('files:', e.dataTransfer.files.length);
+    this.filesService.setFiles(e.dataTransfer.files);
   }
 }
