@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilesService } from '../../files.service';
 
 @Component({
   selector: 'app-files',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private filesService: FilesService) { }
 
   ngOnInit() {
   }
 
+  getFiles() {
+    return this.filesService.getFiles();
+  }
 }

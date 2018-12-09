@@ -1,3 +1,8 @@
-<p>
-  files works!
-</p>
+<div>
+  <p>files</p>
+  <ul>
+    <li *ngFor="let files of this.getFiles() | keyvalue">
+      {{files.name}}
+    </li>
+  </ul>
+</div>

@@ -80,7 +80,6 @@ export default class Photoshop {
       // so, offset is
       const sizeView = new DataView(this.body, i + 8, 4);
       const size = sizeView.getInt32(0);
-      console.log(size);
       const xpacket = new Uint8Array(this.body, i + 12, size);
       const xpacketString: String = String.fromCharCode.apply(null, xpacket);
       return xpacketString.replace(/^\<\?xpacket.*\>\n/g, '');

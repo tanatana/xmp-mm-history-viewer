@@ -1,5 +1,19 @@
-<p
-  (click)="onClick()"
->
-  history works!
-</p>
+<div class="history-list">
+  <ng-container *ngFor="let fileDetail of this.fileDetails">
+    <div>
+      <p>{{fileDetail.file.name}}</p>
+      <ul>
+      <ng-container *ngFor="let history of fileDetail.meta.xmpMMHistory">
+        <li>
+          <div class="action">{{ history.Action }}</div>
+          <div class="when">when: {{ history.When.toString() !== 'Invalid Date' ? history.When.toISOString() : 'N/A'}}</div>
+          <div class="id">id: {{ history.InstanceID !== '' ? history.InstanceID : 'N/A'}}</div>
+        </li>
+      </ng-container>
+      </ul>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="this.fileDetails.length === 0">
+    ドラッグ&ドロップでファイルの xmpMM:History を表示
+  </ng-container>
+</div>

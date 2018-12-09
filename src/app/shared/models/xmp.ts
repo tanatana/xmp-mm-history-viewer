@@ -97,7 +97,6 @@ function metadataHistoriesFromXMPMMHistory(node: XMLParse.Node): Array<MetadataH
 
 export function ParseXMPMetadata(xmlString: string): Metadata {
   const xmlFile = XMLParse(xmlString);
-  console.log(xmlFile);
   if (xmlFile.root.name !== 'x:xmpmeta' || xmlFile.root.attributes['xmlns:x'] !== 'adobe:ns:meta/') {
     throw (new Error(ErrNotValidXMPMetadata));
   }

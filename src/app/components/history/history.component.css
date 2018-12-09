@@ -1,0 +1,35 @@
+.history-list {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+}
+
+.history-list ul {
+  display: block;
+  list-style: none;
+  padding-left: 0;
+  border-radius: 15px;
+}
+
+.history-list ul li {
+  background: #fff;
+  padding: 10px;
+  line-height: 1.4;
+  margin-bottom: 3px;
+}
+
+.history-list ul li .action {
+  margin-bottom: 1px;
+}
+
+.history-list ul li .when {
+  color: #555;
+  font-size: 13px;
+}
+
+.history-list ul li .id {
+  color: #555;
+  font-size: 13px;
+}
