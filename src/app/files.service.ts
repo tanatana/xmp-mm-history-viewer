@@ -13,7 +13,7 @@ export class FilesService {
   getFiles() {
   }
 
-  async setFiles(files: FileList) {
+  async addFiles(files: FileList) {
     for (let i = 0, f; i < files.length; i++ ) {
       f = files[i];
       console.log(f);

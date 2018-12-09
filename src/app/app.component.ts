@@ -36,6 +36,6 @@ export class AppComponent implements OnInit {
     e.preventDefault();
     e.stopPropagation();
     this.dragEnterCounter = 0;
-    this.filesService.setFiles(e.dataTransfer.files);
+    this.filesService.addFiles(e.dataTransfer.files);
   }
 }
