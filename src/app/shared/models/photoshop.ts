@@ -47,7 +47,7 @@ export default class Photoshop {
     this.size.imageResrouce = imageResourceLengthView.getInt32(0);
   }
 
-  getXMPMetadata() {
+  getXMPMetadata(): String {
     let xmpDetectionFlag = false;
     // image resource offset + 4 (image resource length)
     const offset = this.offset.imageResource + 4;
@@ -81,19 +81,11 @@ export default class Photoshop {
       const sizeView = new DataView(this.body, i + 8, 4);
       const size = sizeView.getInt32(0);
       console.log(size);
-
-      const xmpMetaData = new Uint8Array(this.body, i + 12, size);
-      console.log(String.fromCharCode.apply('', xmpMetaData));
-
-      i += size;
-      if (size === 0) {
-        throw (new Error('invalid XMP data length'));
-      }
+      const xpacket = new Uint8Array(this.body, i + 12, size);
+      const xpacketString: String = String.fromCharCode.apply(null, xpacket);
+      return xpacketString.replace(/^\<\?xpacket.*\>\n/g, '');
     }
-
-    if (!xmpDetectionFlag) {
-      throw (new Error('XMP data was not found'));
-    }
+    throw (new Error('XMP data was not found'));
   }
 
   read(file: File): Promise<string> {

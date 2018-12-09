@@ -18,15 +18,18 @@ export class FilesService {
       f = files[i];
       console.log(f);
 
+      let metadataStr: String;
       switch (f.type) {
         case 'image/vnd.adobe.photoshop':
           const photoshop = new Photoshop();
           await photoshop.read(f);
-          photoshop.getXMPMetadata();
+          metadataStr = photoshop.getXMPMetadata();
 
           // DocumentID を引いてこいつのあれにセットする
           // 最終的には雑に Event でも発火してあげればいいのでは?
       }
+      console.log(metadataStr);
+
     }
   }
 }
