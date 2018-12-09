@@ -47,7 +47,7 @@ export default class Photoshop {
     this.size.imageResrouce = imageResourceLengthView.getInt32(0);
   }
 
-  getXMPMetadata(): String {
+  getXMPMetadata(): string {
     let xmpDetectionFlag = false;
     // image resource offset + 4 (image resource length)
     const offset = this.offset.imageResource + 4;
