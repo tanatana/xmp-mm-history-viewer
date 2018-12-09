@@ -30,7 +30,6 @@ function iso8601ToDate(dateString: string): Date {
 }
 
 function xmlNodeToMetadataHistory(node: XMLParse.Node): MetadataHistory {
-  console.log(node);
   let action: string;
   let instanceID: string;
   let whenStr: string;
@@ -39,7 +38,6 @@ function xmlNodeToMetadataHistory(node: XMLParse.Node): MetadataHistory {
 
   if (node.name === 'rdf:li') {
       node.children.forEach((v) => {
-      console.log(v);
       switch (v.name) {
         case 'stEvt:action':
           action = v.content;
@@ -65,7 +63,6 @@ function xmlNodeToMetadataHistory(node: XMLParse.Node): MetadataHistory {
     parameters = node.attributes['stEvt:parameters'];
   }
 
-  console.log(action);
   if (
     action === undefined || action === ''
   ) {
@@ -114,7 +111,6 @@ export function ParseXMPMetadata(xmlString: string): Metadata {
   if (rdfDescription.name !== 'rdf:Description') {
     throw (new Error(ErrNotValidXMPMetadata));
   }
-  console.log('description:', rdfDescription);
 
   const metadata: Metadata = {
     dcFormat: '',
